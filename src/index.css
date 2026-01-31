@@ -1,0 +1,227 @@
+@import "tailwindcss";
+@config "../tailwind.config.js";
+
+/* =========================
+   MICHROMA
+========================= */
+@font-face {
+  font-family: "Michroma";
+  src: url("./assets/font/michroma/Michroma-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* =========================
+   ORBITRON
+========================= */
+@font-face {
+  font-family: "Orbitron";
+  src: url("./assets/font/orbitron/Orbitron-Regular.ttf") format("truetype");
+  font-weight: 400;
+}
+@font-face {
+  font-family: "Orbitron";
+  src: url("./assets/font/orbitron/Orbitron-Medium.ttf") format("truetype");
+  font-weight: 500;
+}
+@font-face {
+  font-family: "Orbitron";
+  src: url("./assets/font/orbitron/Orbitron-SemiBold.ttf") format("truetype");
+  font-weight: 600;
+}
+@font-face {
+  font-family: "Orbitron";
+  src: url("./assets/font/orbitron/Orbitron-Bold.ttf") format("truetype");
+  font-weight: 700;
+}
+@font-face {
+  font-family: "Orbitron";
+  src: url("./assets/font/orbitron/Orbitron-ExtraBold.ttf") format("truetype");
+  font-weight: 800;
+}
+@font-face {
+  font-family: "Orbitron";
+  src: url("./assets/font/orbitron/Orbitron-Black.ttf") format("truetype");
+  font-weight: 900;
+}
+
+/* =========================
+   SYNE
+========================= */
+@font-face {
+  font-family: "Syne";
+  src: url("./assets/font/syne/Syne-Regular.ttf") format("truetype");
+  font-weight: 400;
+}
+@font-face {
+  font-family: "Syne";
+  src: url("./assets/font/syne/Syne-Medium.ttf") format("truetype");
+  font-weight: 500;
+}
+@font-face {
+  font-family: "Syne";
+  src: url("./assets/font/syne/Syne-SemiBold.ttf") format("truetype");
+  font-weight: 600;
+}
+@font-face {
+  font-family: "Syne";
+  src: url("./assets/font/syne/Syne-Bold.ttf") format("truetype");
+  font-weight: 700;
+}
+@font-face {
+  font-family: "Syne";
+  src: url("./assets/font/syne/Syne-ExtraBold.ttf") format("truetype");
+  font-weight: 800;
+}
+
+/* =========================
+   CURSOR EFFECTS
+========================= */
+.cursor-ripple {
+  position: fixed;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 2px solid #12a000;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  animation: ripple 0.6s ease-out forwards;
+  z-index: 9999;
+}
+
+@keyframes ripple {
+  0% {
+    width: 0;
+    height: 0;
+    opacity: 1;
+  }
+  100% {
+    width: 60px;
+    height: 60px;
+    opacity: 0;
+  }
+}
+
+.cursor-particle {
+  position: fixed;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background-color: #12a000;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  animation: particle 0.4s ease-out forwards;
+  z-index: 9999;
+}
+
+@keyframes particle {
+  0% {
+    opacity: 1;
+    transform: translate(-50%, -50%) translate(0, 0);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -50%) translate(var(--tx), var(--ty));
+  }
+}
+
+/* =========================
+   THEME VARIABLES
+========================= */
+:root,
+[data-theme="dark"] {
+  --color-background: #161326;
+  --color-surface: #0e0c19;
+  --color-foreground: #eaeaf3;
+  --color-muted: #636073;
+  --color-vert: #12a000;
+  --color-primary-dark: #0c5f01;
+
+  /* RGB values for Tailwind opacity support */
+  --color-background-rgb: 22 19 38;
+  --color-surface-rgb: 14 12 25;
+  --color-foreground-rgb: 234 234 243;
+  --color-muted-rgb: 99 96 115;
+}
+
+[data-theme="light"] {
+  --color-background: #f5f5f7;
+  --color-surface: #ffffff;
+  --color-foreground: #161326;
+  --color-muted: #8a8a9a;
+  --color-vert: #12a000;
+  --color-primary-dark: #0c5f01;
+
+  /* RGB values for Tailwind opacity support */
+  --color-background-rgb: 245 245 247;
+  --color-surface-rgb: 255 255 255;
+  --color-foreground-rgb: 22 19 38;
+  --color-muted-rgb: 138 138 154;
+}
+
+/* Light mode shadow override */
+[data-theme="light"] .shadow-neo {
+  box-shadow:
+    3px 3px 12px rgba(0, 0, 0, 0.2),
+    -3px -3px 12px rgba(255, 255, 255, 0.9) !important;
+}
+
+/* AJOUTER À LA FIN DE index.css */
+
+/* ============================================
+   ANIMATIONS PERSONNALISÉES POUR LE HERO
+============================================ */
+
+/* Animation de rotation lente */
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes spin-slow-reverse {
+  from {
+    transform: rotate(360deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 20s linear infinite;
+}
+
+.animate-spin-slow-reverse {
+  animation: spin-slow-reverse 25s linear infinite;
+}
+
+/* Animation de dégradé */
+@keyframes gradient-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animate-gradient {
+  background-size: 200% 200%;
+  animation: gradient-shift 3s ease infinite;
+}
+
+/* Effet de lueur verte pour l'accent */
+.shadow-glow-accent {
+  box-shadow:
+    0 0 20px rgba(18, 160, 0, 0.3),
+    0 0 40px rgba(18, 160, 0, 0.1),
+    0 0 60px rgba(18, 160, 0, 0.05);
+}

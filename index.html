@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="fr" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Codify</title>
+    <script>
+      // Appliquer le thème sauvegardé ou dark par défaut avant le rendu React
+      const savedTheme = localStorage.getItem("codify-theme") || "dark";
+      document.documentElement.setAttribute("data-theme", savedTheme);
+      document.documentElement.dataset.theme = savedTheme;
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
